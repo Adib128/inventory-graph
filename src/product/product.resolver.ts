@@ -1,5 +1,6 @@
 import { Resolver, Query, Args, Mutation, ResolveField, Parent } from '@nestjs/graphql';
 import { CategoryService } from 'src/category/category.service';
+import { CategoryType } from 'src/category/category.type';
 import { Product } from './product.entity';
 import { ProductInput } from './product.input';
 import { ProductService } from './product.service';
@@ -9,8 +10,8 @@ import { ProductType } from './product.type';
 export class ProductResolver {
   constructor(
     private productService: ProductService,
-    private categoryService: CategoryService
-    ) {}
+    private categoryService: CategoryService,
+  ) {}
 
   @Query((returns) => ProductType)
   product(@Args('id') id: string) {
@@ -40,4 +41,8 @@ export class ProductResolver {
     return this.productService.deleteProduct(id);
   }
 
+  @ResolveField((returns) => CategoryType)
+  async category(@Parent() product: Product) {
+    return this.categoryService.category(product.category);
+  }
 }
