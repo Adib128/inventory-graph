@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Category } from './category/category.entity';
+import { CategoryModule } from './category/category.module';
 import { Product } from './product/product.entity';
 import { ProductModule } from './product/product.module';
 @Module({
@@ -11,13 +13,15 @@ import { ProductModule } from './product/product.module';
       synchronize: true,
       useUnifiedTopology: true,
       entities: [
-        Product
+        Product,
+        Category
       ]
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true
     }),
-    ProductModule
+    ProductModule,
+    CategoryModule
   ],
   controllers: [],
   providers: [],

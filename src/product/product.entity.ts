@@ -1,4 +1,4 @@
-import { Column, Entity, ObjectID, ObjectIdColumn, PrimaryColumn } from "typeorm";
+import { Column, Entity, ObjectIdColumn, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Product {
@@ -25,4 +25,7 @@ export class Product {
 
   @Column()
   price: number;
+
+  @Column()
+  category: string;
 }

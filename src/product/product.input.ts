@@ -1,5 +1,5 @@
 import { Field, ID, InputType } from "@nestjs/graphql";
-import { IsNotEmpty, IsNumber, MaxLength, MinLength } from "class-validator";
+import { IsNotEmpty, IsNumber, IsUUID, MaxLength, MinLength } from "class-validator";
 
 @InputType()
 export class ProductInput {
@@ -29,4 +29,9 @@ export class ProductInput {
   @IsNotEmpty()
   @IsNumber()
   price: number;
+
+  @Field(() => ID)
+  @IsNotEmpty()
+  @IsUUID('4', { each: true })
+  category: string;
 }

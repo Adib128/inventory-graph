@@ -1,4 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { CategoryType } from 'src/category/category.type';
 
 @ObjectType('Product')
 export class ProductType {
@@ -22,4 +23,7 @@ export class ProductType {
 
   @Field()
   price: number;
+
+  @Field(type => CategoryType)
+  categoory: string;
 }
