@@ -17,14 +17,28 @@ export class PurchaseService {
   }
 
   async purchase(id: string): Promise<Purchase> {
-    return await this.purchaseRepository.findOne({id});
+    return await this.purchaseRepository.findOne({ id });
   }
 
   async createPurchase(purchaseInput: PurchaseInput): Promise<Purchase> {
     const purchase = this.purchaseRepository.create({
       id: uuid(),
-      ...purchaseInput
+      ...purchaseInput,
     });
     return await this.purchaseRepository.save(purchase);
+  }
+
+  async updatePurchase(
+    purchaseInput: PurchaseInput,
+    id: string,
+  ): Promise<Purchase> {
+    await this.purchaseRepository.update({ id }, purchaseInput);
+    return await this.purchaseRepository.findOne({ id });
+  }
+
+  async deletePurchase(id: string): Promise<Purchase> {
+    const purchase = await this.purchase(id);
+    this.purchaseRepository.delete({ id });
+    return purchase;
   }
 }

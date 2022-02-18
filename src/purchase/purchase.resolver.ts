@@ -35,6 +35,20 @@ export class PurchaseResolver {
     return this.purchaseService.createPurchase(purchaseInput);
   }
 
+  @Mutation((returns) => PurchaseType)
+  updatePurchase(
+    @Args('purchaseInput') purchaseInput: PurchaseInput,
+    @Args('id') id: string,
+  ) {
+    return this.purchaseService.updatePurchase(purchaseInput, id);
+  }
+
+  @Mutation((returns) => PurchaseType)
+  deletePurchase(@Args('id') id: string) {
+    console.log(id);
+    return this.purchaseService.deletePurchase(id);
+  }
+
   @ResolveField((returns) => ProductType)
   product(@Parent() purchase: Purchase) {
     return this.productService.product(purchase.product);
