@@ -42,7 +42,7 @@ export class ProductResolver {
   }
 
   @ResolveField((returns) => CategoryType)
-  async category(@Parent() product: Product) {
+  category(@Parent() product: Product) {
     return this.categoryService.category(product.category);
   }
 }
