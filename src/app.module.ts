@@ -5,6 +5,8 @@ import { Category } from './category/category.entity';
 import { CategoryModule } from './category/category.module';
 import { Product } from './product/product.entity';
 import { ProductModule } from './product/product.module';
+import { Purchase } from './purchase/purchase.entity';
+import { PurchaseModule } from './purchase/purchase.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -14,14 +16,16 @@ import { ProductModule } from './product/product.module';
       useUnifiedTopology: true,
       entities: [
         Product,
-        Category
+        Category,
+        Purchase
       ]
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true
     }),
     ProductModule,
-    CategoryModule
+    CategoryModule,
+    PurchaseModule
   ],
   controllers: [],
   providers: [],

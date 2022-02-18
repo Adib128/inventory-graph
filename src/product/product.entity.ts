@@ -21,6 +21,9 @@ export class Product {
   unit: string;
 
   @Column()
+  quantity: number;
+
+  @Column()
   location: string;
 
   @Column()

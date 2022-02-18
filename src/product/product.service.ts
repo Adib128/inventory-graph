@@ -15,26 +15,30 @@ export class ProductService {
     const product = this.productRepository.create({
       id: uuid(),
       ...productInput,
+      quantity: 0,
     });
     return await this.productRepository.save(product);
   }
 
-  async updateProduct(productInput: ProductInput,id: string): Promise<Product> {
+  async updateProduct(
+    productInput: ProductInput,
+    id: string,
+  ): Promise<Product> {
     await this.productRepository.update({ id }, productInput);
     return await this.productRepository.findOne({ id });
   }
 
   async product(id: string): Promise<Product> {
-    return this.productRepository.findOne({ id });
+    return await this.productRepository.findOne({ id });
   }
 
   async products(): Promise<Product[]> {
     return this.productRepository.find();
   }
 
-  async deleteProduct(id: string): Promise<Product>{
+  async deleteProduct(id: string): Promise<Product> {
     const product = await this.product(id);
-    await this.productRepository.delete({id});
+    await this.productRepository.delete({ id });
     return product;
   }
 }

@@ -19,11 +19,14 @@ export class ProductType {
   unit: string;
 
   @Field()
+  quantity: number;
+
+  @Field()
   location: string;
 
   @Field()
   price: number;
 
-  @Field(type => CategoryType)
+  @Field((type) => CategoryType)
   categoory: string;
 }
