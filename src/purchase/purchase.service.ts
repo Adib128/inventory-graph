@@ -4,12 +4,14 @@ import { Repository } from 'typeorm';
 import { Purchase } from './purchase.entity';
 import { PurchaseInput } from './purchase.input';
 import { v4 as uuid } from 'uuid';
+import { ProductService } from 'src/product/product.service';
 
 @Injectable()
 export class PurchaseService {
   constructor(
     @InjectRepository(Purchase)
     private purchaseRepository: Repository<Purchase>,
+    private productService: ProductService
   ) {}
 
   async purchases(): Promise<Purchase[]> {
@@ -25,6 +27,8 @@ export class PurchaseService {
       id: uuid(),
       ...purchaseInput,
     });
+    // Calling to the function to update product quantity
+    await this.productService.updateQuantity(purchase.product, purchase.quantity);
     return await this.purchaseRepository.save(purchase);
   }
 
@@ -41,4 +45,5 @@ export class PurchaseService {
     this.purchaseRepository.delete({ id });
     return purchase;
   }
+
 }

@@ -28,6 +28,12 @@ export class ProductService {
     return await this.productRepository.findOne({ id });
   }
 
+  async updateQuantity(id: string, quantity: number): Promise<void>{
+    const product = await this.product(id);
+    product.quantity = product.quantity +  quantity ; 
+    await this.productRepository.save(product);
+  }
+
   async product(id: string): Promise<Product> {
     return await this.productRepository.findOne({ id });
   }
