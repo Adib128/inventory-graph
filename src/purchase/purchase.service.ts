@@ -28,7 +28,7 @@ export class PurchaseService {
       ...purchaseInput,
     });
     // Calling to the function to update product quantity
-    await this.productService.updateQuantity(purchase.product, purchase.quantity);
+    await this.productService.updateQuantityPurchase(purchase.product, purchase.quantity);
     return await this.purchaseRepository.save(purchase);
   }
 

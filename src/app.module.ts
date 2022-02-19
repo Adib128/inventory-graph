@@ -9,6 +9,8 @@ import { Purchase } from './purchase/purchase.entity';
 import { PurchaseModule } from './purchase/purchase.module';
 import { CustomerModule } from './customer/customer.module';
 import { Customer } from './customer/customer.entity';
+import { SaleModule } from './sale/sale.module';
+import { Sale } from './sale/sale.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -20,7 +22,8 @@ import { Customer } from './customer/customer.entity';
         Product,
         Category,
         Purchase,
-        Customer
+        Customer,
+        Sale
       ]
     }),
     GraphQLModule.forRoot({
@@ -29,7 +32,8 @@ import { Customer } from './customer/customer.entity';
     ProductModule,
     CategoryModule,
     PurchaseModule,
-    CustomerModule
+    CustomerModule,
+    SaleModule
   ],
   controllers: [],
   providers: [],
