@@ -11,29 +11,26 @@ import { CustomerModule } from './customer/customer.module';
 import { Customer } from './customer/customer.entity';
 import { SaleModule } from './sale/sale.module';
 import { Sale } from './sale/sale.entity';
+import { ConfigModule } from '@nestjs/config';
+
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb://localhost/inventory',
+      url: process.env.MONGO_URI,
       synchronize: true,
       useUnifiedTopology: true,
-      entities: [
-        Product,
-        Category,
-        Purchase,
-        Customer,
-        Sale
-      ]
+      entities: [Product, Category, Purchase, Customer, Sale],
     }),
     GraphQLModule.forRoot({
-      autoSchemaFile: true
+      autoSchemaFile: true,
     }),
     ProductModule,
     CategoryModule,
     PurchaseModule,
     CustomerModule,
-    SaleModule
+    SaleModule,
   ],
   controllers: [],
   providers: [],
