@@ -12,18 +12,16 @@ import { Customer } from './customer/customer.entity';
 import { SaleModule } from './sale/sale.module';
 import { Sale } from './sale/sale.entity';
 import { ConfigModule } from '@nestjs/config';
-import { AuthModule } from './auth/auth.module';
-import { User } from './auth/user.entity';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb+srv://Adib:DAASCloud1;;@cluster0.ifw4d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+      url: 'mongodb+srv://Adib:DAASCloud1;;@cluster0.ifw4d.mongodb.net/inventory',
       synchronize: true,
       useUnifiedTopology: true,
-      entities: [Product, Category, Purchase, Customer, Sale, User],
+      entities: [Product, Category, Purchase, Customer, Sale],
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
@@ -32,8 +30,7 @@ import { User } from './auth/user.entity';
     CategoryModule,
     PurchaseModule,
     CustomerModule,
-    SaleModule,
-    AuthModule,
+    SaleModule
   ],
   controllers: [],
   providers: [],

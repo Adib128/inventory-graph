@@ -1,7 +1,4 @@
-import { UseGuards } from '@nestjs/common';
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
-import { AuthGuard } from '@nestjs/passport';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { CategoryInput } from './category.input';
 import { CategoryService } from './category.service';
 import { CategoryType } from './category.type';
@@ -11,7 +8,6 @@ import { CategoryType } from './category.type';
    constructor(private categoryService: CategoryService) {}
 
    @Query((returns) => [CategoryType])
-   @UseGuards(AuthGuard('jwt'))
    async categories() {
      return this.categoryService.categories();
    }
