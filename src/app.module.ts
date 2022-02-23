@@ -25,12 +25,14 @@ import { ConfigModule } from '@nestjs/config';
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
+      debug: true,
+      playground: true
     }),
     ProductModule,
     CategoryModule,
     PurchaseModule,
     CustomerModule,
-    SaleModule
+    SaleModule,
   ],
   controllers: [],
   providers: [],
