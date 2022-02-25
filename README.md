@@ -1,6 +1,6 @@
 
-# VH-Manager - Fleet Management System RESTful API
-Inventory-graph is a Graphql API for Inventory Management. This system enables the company to manage the inventory resources of a warehouse.
+# Inventory-Graph  - Graphql Inventory Management
+Inventory-Graph is a Graphql API for Inventory Management. This system enables the company to manage the inventory resources of a warehouse.
 the system composed by:
 
 - Categories management
