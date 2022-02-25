@@ -26,7 +26,8 @@ import { ConfigModule } from '@nestjs/config';
     GraphQLModule.forRoot({
       autoSchemaFile: true,
       debug: true,
-      playground: true
+      playground: true,
+      introspection: true
     }),
     ProductModule,
     CategoryModule,
