@@ -1,6 +1,6 @@
 
 # VH-Manager - Fleet Management System RESTful API
-Inventory-graph is a Graphql API for Inventory Management. This system enables the company to manage all the resources of the fleet as well as the vehicle booking managment.
+Inventory-graph is a Graphql API for Inventory Management. This system enables the company to manage the inventory resources of a warehouse.
 the system composed by:
 
 - Categories management
@@ -12,11 +12,9 @@ the system composed by:
 ## Built With
 - [NestJS](https://nestjs.com/) a progressive Node.js framework built with TypeScript
 - [MongoDB](https://www.mongodb.com/) a document-oriented NoSQL database
-- [Mongoose](https://mongoosejs.com/) MongoDB object modeling for Node.js
-- [JWT](https://jwt.io/) standard for signature and optional encryption
-- [Bcrypt](https://www.npmjs.com/package/bcrypt) a password hashing library
-- [PassportJS](http://www.passportjs.org/) an authentication middleware for Node.js
-- [Swagger](https://swagger.io/) tools for documenting  RESTful APIs
+- [TypeORM](https://typeorm.io/) a TypeScript ORM
+- [GraphQL](https://www.npmjs.com/package/graphql) The JavaScript implementation for GraphQL
+- [Apollo Server Express](https://www.npmjs.com/package/apollo-server-express) his is the Express integration of Apollo Server
 
 
 ## Installation
@@ -58,4 +56,4 @@ $ npm run start
 
 ## Documentation
 
-You'll find the playground containing schemas, queries and mutations here [https://invetory-graph.herokuapp.com/graphql](https://invetory-graph.herokuapp.com/graphql).
+You'll find the graphql playground containing schemas, queries and mutations here [https://invetory-graph.herokuapp.com/graphql](https://invetory-graph.herokuapp.com/graphql).
