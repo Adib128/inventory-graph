@@ -18,7 +18,7 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb+srv://Adib:DAASCloud1;;@cluster0.ifw4d.mongodb.net/inventory',
+      url: process.env.MONGO_URI,
       synchronize: true,
       useUnifiedTopology: true,
       entities: [Product, Category, Purchase, Customer, Sale],
