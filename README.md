@@ -5,8 +5,8 @@ the system composed by:
 
 - Categories management
 - Products management
-- Sale management
-- Purchase management
+- Purchase (Input) management
+- Sales(Output) management
 - Customers maangement
 
 ## Built With
