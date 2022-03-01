@@ -6,9 +6,10 @@ the system composed by:
 - Categories management
 - Products management
 - Purchase (Input) management
-- Sales(Output) management
+- Sales (Output) management
 - Customers maangement
-
+- Products quantities update automaticly
+-
 ## Built With
 - [NestJS](https://nestjs.com/) a progressive Node.js framework built with TypeScript
 - [MongoDB](https://www.mongodb.com/) a document-oriented NoSQL database
