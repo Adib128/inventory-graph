@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  nest-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nest-api 
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+    env_file:
+      - .env
+
+  database:
+    image: mongo
+    restart: always 
+    environment: 
+      - .env
+    volumes: 
+      - mongodb:/data/db 
+    ports:
+      - 27017:27017
+
+volumes:
+  mongodb:

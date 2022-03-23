@@ -9,7 +9,7 @@ the system composed by:
 - Sales (Output) management
 - Customers maangement
 - Products quantities update automaticly
--
+
 ## Built With
 - [NestJS](https://nestjs.com/) a progressive Node.js framework built with TypeScript
 - [MongoDB](https://www.mongodb.com/) a document-oriented NoSQL database

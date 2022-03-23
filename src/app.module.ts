@@ -27,7 +27,7 @@ import { ConfigModule } from '@nestjs/config';
       autoSchemaFile: true,
       debug: true,
       playground: true,
-      introspection: true
+      introspection: true,
     }),
     ProductModule,
     CategoryModule,
